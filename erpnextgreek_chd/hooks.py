@@ -87,6 +87,13 @@ app_license = "MIT"
 #	}
 # }
 
+# Christos Chochlidakis
+doc_events = {
+    "Purchase Invoice": {
+        "on_submit": "erpnextgreek_chd.erpnext_document_hooks.pi_on_submit"
+    }
+}
+
 # Scheduled Tasks
 # ---------------
 
