@@ -36,5 +36,5 @@ def pi_on_submit(doc, method):
 
                 # update stock & gl entries for submit state of PR
                 pr_doc.docstatus = 1
-                pr_doc.update_stock_ledger(via_landed_cost_voucher=True)
+                pr_doc.update_stock_ledger(via_landed_cost_voucher=False)
                 pr_doc.make_gl_entries()
