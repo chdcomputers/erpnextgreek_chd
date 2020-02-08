@@ -15,12 +15,13 @@ def pi_on_submit(doc, method):
         pr_doc = frappe.get_doc("Purchase Receipt", pr)
         if pr_doc is not None:
             print("Purchase receipt document retrieved")
-            for pr_item in pr_doc.get("items"):
-                print(pr_item.item_code)
-                if item.item_code == pr_item.item_code:
-                    if pr_item.valuation_rate != item.rate:
-                        needsUpdate = True
-                        pr_item.valuation_rate = item.rate
+			for pi_item in doc.get("items"):
+				for pr_item in pr_doc.get("items"):
+					print(pr_item.item_code)
+					if pi_item.item_code == pr_item.item_code:
+						if pr_item.valuation_rate != pi_item.rate:
+							needsUpdate = True
+							pr_item.valuation_rate = pi_item.rate
 
             if needsUpdate:
                 print("Updating")
