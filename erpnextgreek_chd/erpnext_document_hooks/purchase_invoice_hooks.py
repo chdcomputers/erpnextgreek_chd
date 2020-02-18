@@ -19,12 +19,12 @@ def pi_on_submit(doc, method):
 				for pr_item in pr_doc.get("items"):
 					print(pr_item.item_code)
 					if pi_item.item_code == pr_item.item_code:
-						if pr_item.valuation_rate != pi_item.rate:
+						if pr_item.valuation_rate == 0:
 							needsUpdate = True
 							pr_item.valuation_rate = pi_item.rate
 
 			if needsUpdate:
-				print("Updating")
+				print("Updating Valuation rates")
 				# save will update landed_cost_voucher_amount and voucher_amount in PR,
 				# as those fields are allowed to edit after submit
 				pr_doc.save()
